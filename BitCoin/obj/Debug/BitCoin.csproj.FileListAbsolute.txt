@@ -1,0 +1,10 @@
+C:\Users\musk0\source\repos\BitCoin\BitCoin\bin\Debug\BitCoin.exe.config
+C:\Users\musk0\source\repos\BitCoin\BitCoin\bin\Debug\BitCoin.exe
+C:\Users\musk0\source\repos\BitCoin\BitCoin\bin\Debug\BitCoin.pdb
+C:\Users\musk0\source\repos\BitCoin\BitCoin\bin\Debug\Newtonsoft.Json.dll
+C:\Users\musk0\source\repos\BitCoin\BitCoin\bin\Debug\Newtonsoft.Json.xml
+C:\Users\musk0\source\repos\BitCoin\BitCoin\obj\Debug\BitCoin.csprojResolveAssemblyReference.cache
+C:\Users\musk0\source\repos\BitCoin\BitCoin\obj\Debug\BitCoin.csproj.CoreCompileInputs.cache
+C:\Users\musk0\source\repos\BitCoin\BitCoin\obj\Debug\BitCoin.exe
+C:\Users\musk0\source\repos\BitCoin\BitCoin\obj\Debug\BitCoin.pdb
+C:\Users\musk0\source\repos\BitCoin\BitCoin\bin\Debug\RestSharp.dll

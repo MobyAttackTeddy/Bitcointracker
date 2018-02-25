@@ -1,14 +1,17 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+
 
 namespace BitCoin
 {
+
+    
 
     public class btcObject
     {
@@ -43,6 +46,7 @@ namespace BitCoin
 
     class Program
     {
+        
         public static btcObject getBtcJson()
         {
             try
@@ -65,6 +69,8 @@ namespace BitCoin
         {
             {
                 int loadupCounter = 0;
+                Model1Container model1Container = new Model1Container();
+                
                 do
                 {
                     /// JUST A TEST works
@@ -92,7 +98,7 @@ namespace BitCoin
                             wallet.lastturn = btcList.LastOrDefault();
                             wallet.percent = Percent;
                             Console.WriteLine(Percent + " %");
-                            Console.WriteLine(wallet.lastturn.last / wallet.secondlastturn.last);
+                            
                             if (Percent < 0.99 && wallet.dollars == 0 && Double.IsInfinity(Percent) == false )
                             {
                                 Console.WriteLine("Buying dollars");
@@ -131,6 +137,19 @@ namespace BitCoin
                                 wallet.dollars = 0;
                             }
                         }
+
+                        // Database
+                        Market market = new Market() {
+                            BitValue = btc.last,
+                            DateStamp = UnixTimeStampToDateTime(btc.timestamp)
+                        };
+
+                        WalletSet w = new WalletSet() { Bitcoin = wallet.bitCoin, BitInDollar = btc.last * wallet.bitCoin, Dollar = wallet.dollars, DateStamp = UnixTimeStampToDateTime(btc.timestamp) };
+                        model1Container.MarketSet.Add(market);
+                        model1Container.WalletSetSet.Add(w);
+                        model1Container.SaveChanges();
+
+
 
                         // Init up data
                         if (loadupCounter < 2)                       
@@ -178,8 +197,8 @@ namespace BitCoin
 
         static void Main(string[] args)
         {
-            
-            wallet.dollars = 100;
+
+            wallet.bitCoin = 1;
 
             // Some help for the user
             Console.WriteLine("Type command 'quit', to exit. Type 'value' to get some stats, ");
@@ -202,13 +221,13 @@ namespace BitCoin
 
                     if (wallet.dollars != 0)
                     {
-                        Console.WriteLine("Value change on wallet: " + ((wallet.dollars / 100) - 1) + "%");
+                        Console.WriteLine("Value change on wallet: " + ((wallet.dollars) - 1) + "%");
 
                     }
                     else if (wallet.bitCoin != 0)
                     {
                         var t = wallet.dollars * btcList.LastOrDefault().last;
-                        Console.WriteLine("Value change on wallet: " + ((wallet.bitCoin * Program.getBtcJson().last  / 100) - 1) + "%");
+                        Console.WriteLine("Value change on wallet: " + ((wallet.bitCoin * Program.getBtcJson().last ) - 1) + "%");
                     }
                 }
                 else if (command == "wallet")

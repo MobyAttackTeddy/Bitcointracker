@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MarketSet" EntityType="Model1.Market" />
+    <EntitySet Name="WalletSetSet" EntityType="Model1.WalletSet" />
+  </EntityContainer>
+  <EntityType Name="Market">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BitValue" Type="Double" Nullable="false" />
+    <Property Name="DateStamp" Type="DateTime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="WalletSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BitInDollar" Type="Double" Nullable="false" />
+    <Property Name="DateStamp" Type="DateTime" Nullable="false" />
+    <Property Name="Dollar" Type="Double" Nullable="false" />
+    <Property Name="Bitcoin" Type="Double" Nullable="false" />
+  </EntityType>
+</Schema>

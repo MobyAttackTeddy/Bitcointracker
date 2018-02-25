@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="MarketSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Market)">
+        <MappingFragment StoreEntitySet="MarketSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BitValue" ColumnName="BitValue" />
+          <ScalarProperty Name="DateStamp" ColumnName="DateStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WalletSetSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.WalletSet)">
+        <MappingFragment StoreEntitySet="WalletSetSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BitInDollar" ColumnName="BitInDollar" />
+          <ScalarProperty Name="DateStamp" ColumnName="DateStamp" />
+          <ScalarProperty Name="Dollar" ColumnName="Dollar" />
+          <ScalarProperty Name="Bitcoin" ColumnName="Bitcoin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
